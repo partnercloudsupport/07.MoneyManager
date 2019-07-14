@@ -31,7 +31,7 @@ ThemeData getAppTheme() {
       textTheme: ButtonTextTheme.normal,
     ),
     textTheme: TextTheme(
-      title: TextStyle(color: Colors.black, fontFamily: 'Roboto'),
+      title: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
       caption: TextStyle(color: Colors.grey, fontSize: 22, fontFamily: 'Roboto'),
       headline: TextStyle(
           color: Colors.black,
@@ -51,14 +51,14 @@ TextStyle dropDownTextStyle() {
 
 class MyColors {
   static MaterialColor mainColor = const MaterialColor(
-    0xFF466F99,
+    0xFF1D303D,
     const <int, Color> {
-      50: Color(0xFF466F99),
-      100: Color(0xFF466F99),
-      200: Color(0xFF466F99),
-      300: Color(0xFF466F99),
-      400: Color(0xFF466F99),
-      500: Color(0xFF466F99),
+      50: Color(0xFF1D303D),
+      100: Color(0xFF1D303D),
+      200: Color(0xFF1D303D),
+      300: Color(0xFF1D303D),
+      400: Color(0xFF1D303D),
+      500: Color(0xFF1D303D),
       600: Color(0xFF466F99),
       700: Color(0xFF466F99),
       800: Color(0xFF466F99),

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:money_manager/utils/style.dart';
 import 'package:money_manager/view/login/login_widget_export.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,7 +14,7 @@ void main() async {
 
   Prefs.init();
 
-  bool isInDebugMode = false;
+  bool isInDebugMode = true;
 
   FlutterError.onError = (FlutterErrorDetails details) {
     if (isInDebugMode) {
@@ -49,6 +50,8 @@ class AppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    Firestore.instance.settings(persistenceEnabled: true, cacheSizeBytes: 10000000);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MONEY MANAGER',
@@ -56,7 +59,7 @@ class AppState extends State<MyApp> {
       home: LoginWidget(),
       supportedLocales: [
         const Locale('vi'), // English
-        const Locale('ja'), // Japan
+        const Locale('en'), // Japan
       ],
       localizationsDelegates: [
         const MoneyManagerLocalizationsDelegate(),

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "611036267091-kt3jhmqto5bbg0dtch4c35edo3c47odd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "huan.huynh.moneymanager",
+            "certificate_hash": "d0aa2132cdc9632d5dbb159c1aebb04f3d8e0980"
+          }
+        },
+        {
           "client_id": "611036267091-d5vpn6g71mivpn408ug0ngmq985fbral.apps.googleusercontent.com",
           "client_type": 3
         }
