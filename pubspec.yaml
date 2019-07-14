@@ -49,6 +49,7 @@ dependencies:
   hidden_drawer_menu: 1.1.1
   bottom_navy_bar: 5.1.0
   flutter_svg: 0.13.1
+  load: 0.1.4
   flutter_statusbar_manager:
     git: https://github.com/guitcastro/flutter_statusbar_manager.git
 

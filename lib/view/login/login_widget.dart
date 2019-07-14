@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:money_manager/utils/navigation.dart';
+import 'package:money_manager/utils/prefs.dart';
 import 'package:money_manager/utils/snack_bar.dart';
 import 'package:money_manager/utils/string_utils.dart';
 import 'package:money_manager/utils/style.dart';
@@ -86,6 +87,7 @@ class _LoginWidgetState extends BaseBlocState<LoginWidget>
       dispatch(InitialEvent());
     } else if (state.session != null) {
       // Go to Home screen
+      saveSession(state.session);
       onWidgetDidBuild(() {
         navigateToScreen(
           HomeWidget(session: state.session,),

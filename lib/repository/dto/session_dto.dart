@@ -1,22 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 /// Created by Huan.Huynh on 2019-07-05.
 ///
 /// Copyright © 2019 teqnological. All rights reserved.
+
+@JsonSerializable(nullable: false)
 class SessionDto {
-  String id;
-  String name;
-  String email;
-  String password;
-  DateTime birthday;
-  String address;
-  DateTime createdDay;
-  bool isNotify;
-  String facebookId;
-  String facebookToken;
-  String twitterId;
-  String twitterToken;
-  String twitterSecretToken;
+  @JsonKey(name: "id") String id;
+  @JsonKey(name: "name") String name;
+  @JsonKey(name: "email") String email;
+  @JsonKey(name: "password") String password;
+  @JsonKey(name: "birthday") DateTime birthday;
+  @JsonKey(name: "address") String address;
+  @JsonKey(name: "createdDay") DateTime createdDay;
+  @JsonKey(name: "isNotify") bool isNotify;
+  @JsonKey(name: "facebookId") String facebookId;
+  @JsonKey(name: "facebookToken") String facebookToken;
+  @JsonKey(name: "twitterId") String twitterId;
+  @JsonKey(name: "twitterToken") String twitterToken;
+  @JsonKey(name: "twitterSecretToken") String twitterSecretToken;
 
   SessionDto({
     this.id,
@@ -30,11 +33,25 @@ class SessionDto {
     name = json['name'];
     email = json['email'];
     password = json['password'];
-    birthday = json['birthday'] != null
-      ? DateTime.fromMicrosecondsSinceEpoch((json['birthday'] as Timestamp).microsecondsSinceEpoch) : null;
+    if(json['birthday'] != null) {
+      if(json['birthday'] != null is String) {
+        birthday = json['birthday'] != null
+          ? DateTime.parse(json['birthday']) : null;
+      } else if(json['birthday'] != null is Timestamp) {
+        birthday = json['birthday'] != null
+          ? DateTime.fromMicrosecondsSinceEpoch((json['birthday'] as Timestamp).microsecondsSinceEpoch) : null;
+      }
+    }
     address = json['address'];
-    createdDay = json['createdDay'] != null
-      ? DateTime.fromMicrosecondsSinceEpoch((json['createdDay'] as Timestamp).microsecondsSinceEpoch) : null;
+    if(json['createdDay'] != null) {
+      if(json['createdDay'] != null is String) {
+        createdDay = json['createdDay'] != null
+          ? DateTime.parse(json['createdDay']) : null;
+      } else if(json['createdDay'] != null is Timestamp) {
+        createdDay = json['createdDay'] != null
+          ? DateTime.fromMicrosecondsSinceEpoch((json['createdDay'] as Timestamp).microsecondsSinceEpoch) : null;
+      }
+    }
     isNotify = json['isNotify'] as bool;
     facebookId = json['facebookId'];
     facebookToken = json['facebookToken'];
@@ -61,7 +78,7 @@ class SessionDto {
     }
 
     if (this.birthday != null) {
-      data['birthday'] = this.birthday;
+      data['birthday'] = this.birthday.toString();
     }
 
     if (this.address != null) {
@@ -69,7 +86,7 @@ class SessionDto {
     }
 
     if (this.createdDay != null) {
-      data['createdDay'] = this.createdDay;
+      data['createdDay'] = this.createdDay.toString();
     }
 
     if (this.isNotify != null) {

@@ -1,18 +1,22 @@
 import 'dart:async';
+import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:load/load.dart';
+import 'package:money_manager/utils/prefs.dart';
 import 'package:money_manager/utils/style.dart';
+import 'package:money_manager/view/home/home_widget.dart';
 import 'package:money_manager/view/login/login_widget_export.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:money_manager/view/mm_localizations_delegate.dart';
 import 'package:prefs/prefs.dart';
 
 void main() async {
-
-  Prefs.init();
+  await Prefs.init();
 
   bool isInDebugMode = true;
 
@@ -33,7 +37,29 @@ void main() async {
   FlutterError.onError = (FlutterErrorDetails details) {
     Crashlytics.instance.onError(details);
   };
-  runApp(MyApp());
+  runApp(
+    LoadingProvider(
+      themeData: LoadingThemeData(
+        backgroundColor: Colors.black.withOpacity(0.1),
+        tapDismiss: false
+      ),
+      loadingWidgetBuilder: (ctx, data) {
+        return Center(
+          child: Container(
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              color: Colors.white
+            ),
+            child: Center(child: CupertinoActivityIndicator(radius: 25,)),
+          ),
+        );
+      },
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -50,13 +76,14 @@ class AppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    Firestore.instance.settings(persistenceEnabled: true, cacheSizeBytes: 10000000);
+    Firestore.instance.settings(
+      persistenceEnabled: true, cacheSizeBytes: 10000000);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MONEY MANAGER',
       theme: getAppTheme(),
-      home: LoginWidget(),
+      home: getSession() == null ? LoginWidget() : HomeWidget(),
       supportedLocales: [
         const Locale('vi'), // English
         const Locale('en'), // Japan
