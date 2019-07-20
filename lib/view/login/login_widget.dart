@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:load/load.dart';
 import 'package:money_manager/utils/navigation.dart';
 import 'package:money_manager/utils/prefs.dart';
 import 'package:money_manager/utils/snack_bar.dart';
@@ -99,6 +100,12 @@ class _LoginWidgetState extends BaseBlocState<LoginWidget>
     if(state.message != null) {
       showMessage(state.message, _context);
       dispatch(InitialEvent());
+    }
+
+    if (state.isLoading) {
+      showLoadingDialog();
+    } else {
+      hideLoadingDialog();
     }
 
     if((state.googleUser != null || state.facebookUser != null || state.twitterUser != null)

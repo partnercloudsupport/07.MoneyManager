@@ -34,7 +34,7 @@ class SessionDto {
     email = json['email'];
     password = json['password'];
     if(json['birthday'] != null) {
-      if(json['birthday'] != null is String) {
+      if(json['birthday'] is String) {
         birthday = json['birthday'] != null
           ? DateTime.parse(json['birthday']) : null;
       } else if(json['birthday'] != null is Timestamp) {
@@ -44,7 +44,7 @@ class SessionDto {
     }
     address = json['address'];
     if(json['createdDay'] != null) {
-      if(json['createdDay'] != null is String) {
+      if(json['createdDay'] is String) {
         createdDay = json['createdDay'] != null
           ? DateTime.parse(json['createdDay']) : null;
       } else if(json['createdDay'] != null is Timestamp) {

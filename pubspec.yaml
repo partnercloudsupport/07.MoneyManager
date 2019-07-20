@@ -50,8 +50,11 @@ dependencies:
   bottom_navy_bar: 5.1.0
   flutter_svg: 0.13.1
   load: 0.1.4
+  cool_ui: 0.1.16
   flutter_statusbar_manager:
     git: https://github.com/guitcastro/flutter_statusbar_manager.git
+
+  encrypt: 3.2.0 #encrypt password
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +73,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - images/
+   - images/account_type/
+   - images/flags/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
@@ -102,3 +107,7 @@ flutter:
       - family: IndieFlower
         fonts:
           - asset: fonts/IndieFlower.ttf
+
+      - family: MoneyManager
+        fonts:
+          - asset: fonts/MoneyManager.ttf

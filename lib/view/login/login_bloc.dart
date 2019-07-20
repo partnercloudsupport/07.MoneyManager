@@ -60,6 +60,8 @@ class LoginBloc extends BaseBloc<LoginState> {
         idToken: googleAuth.idToken,
       );
 
+      yield currentState.copyWith(isLoading: true);
+
       final FirebaseUser user = await FirebaseAuth.instance
         .signInWithCredential(credential)
         .catchError(handleError);

@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:load/load.dart';
+import 'package:money_manager/utils/calculate_number_keyboard.dart';
 import 'package:money_manager/utils/prefs.dart';
 import 'package:money_manager/utils/style.dart';
 import 'package:money_manager/view/home/home_widget.dart';
@@ -17,6 +18,7 @@ import 'package:prefs/prefs.dart';
 
 void main() async {
   await Prefs.init();
+  CalculateNumberKeyboard.register();
 
   bool isInDebugMode = true;
 

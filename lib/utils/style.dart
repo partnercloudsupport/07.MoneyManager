@@ -3,6 +3,21 @@ import 'package:flutter/material.dart';
 const Color primaryColor = Color(0xFFF8F8F8);
 const Color secondaryColor = Color(0xFF333333);
 
+const MaterialColor defaultTextColor = const MaterialColor(
+  0xFF333333,
+  const <int, Color> {
+    50: Color(0xFF333333),
+    100: Color(0xFF333333),
+    200: Color(0xFF333333),
+    300: Color(0xFF333333),
+    400: Color(0xFF333333),
+    500: Color(0xFF333333),
+    600: Color(0xFF333333),
+    700: Color(0xFF333333),
+    800: Color(0xFF333333),
+    900: Color(0xFF333333),
+  });
+
 ThemeData getAppTheme() {
   return ThemeData(
     fontFamily: 'Roboto',
@@ -20,6 +35,7 @@ ThemeData getAppTheme() {
     hintColor: Colors.grey,
     cursorColor: Colors.grey,
     highlightColor: Colors.transparent,
+    pageTransitionsTheme: PageTransitionsTheme(builders: {TargetPlatform.android: CupertinoPageTransitionsBuilder(),}),
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.red,
       disabledColor: Color(0xFF333333),
@@ -59,10 +75,10 @@ class MyColors {
       300: Color(0xFF1D303D),
       400: Color(0xFF1D303D),
       500: Color(0xFF1D303D),
-      600: Color(0xFF466F99),
-      700: Color(0xFF466F99),
-      800: Color(0xFF466F99),
-      900: Color(0xFF466F99),
+      600: Color(0xFF1D303D),
+      700: Color(0xFF1D303D),
+      800: Color(0xFF1D303D),
+      900: Color(0xFF1D303D),
     });
   static MaterialColor backgroundColor = const MaterialColor(
     0xFF354C66,
@@ -77,6 +93,21 @@ class MyColors {
       700: Color(0xFF354C66),
       800: Color(0xFF354C66),
       900: Color(0xFF354C66),
+    });
+
+  static MaterialColor primaryGreen = const MaterialColor(
+    0xff46c3c1,
+    const <int, Color> {
+      50: Color(0xff46c3c1),
+      100: Color(0xff46c3c1),
+      200: Color(0xff46c3c1),
+      300: Color(0xff46c3c1),
+      400: Color(0xff46c3c1),
+      500: Color(0xff46c3c1),
+      600: Color(0xff46c3c1),
+      700: Color(0xff46c3c1),
+      800: Color(0xff46c3c1),
+      900: Color(0xff46c3c1),
     });
 
   static Color offColor = Colors.redAccent.withOpacity(0.5);

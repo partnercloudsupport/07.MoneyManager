@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 import 'package:money_manager/repository/dto/session_dto.dart';
+import 'package:money_manager/utils/money_manager_icons.dart';
 import 'package:money_manager/utils/style.dart';
 import 'package:money_manager/view/home/accounts/accounts_widget.dart';
 import 'package:money_manager/view/home/loan/loan_widget.dart';
@@ -68,7 +69,7 @@ class _HomeWidgetState extends BaseBlocState<HomeWidget> with TickerProviderStat
                 activeColor: Colors.white,
               ),
               BottomNavyBarItem(
-                icon: Icon(Icons.account_balance_wallet),
+                icon: Icon(MoneyManager.wallet),
                 title: Text(MoneyManagerLocalizations.of(context).titleAccounts),
                 activeColor: Colors.white
               ),

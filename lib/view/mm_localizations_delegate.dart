@@ -21,6 +21,14 @@ class MoneyManagerLocalizations {
       'New_Password_Confirm' : 'Nhập lại mật khẩu mới',
       'New_Account_Confirm' : 'Bạn có muốn tạo tài khoản mới không ?',
 
+      // New Account
+      'NewAccount.Title' : 'Thêm Tài Khoản',
+      'NewAccount.InitialMoney' : 'Số dư ban đầu',
+      'NewAccount.Name' : 'Tên tài khoản',
+      'NewAccount.IsReport' : 'Tính vào báo cáo',
+
+      'Description' : 'Giải thích',
+
       // Reset password
       'Reset_Password_Title' : 'Hướng dẫn tạo mật khẩu mới',
       'Reset_Password_Email' : 'Địa chỉ email',
@@ -41,6 +49,14 @@ class MoneyManagerLocalizations {
       'New_Password' : 'New Password',
       'New_Password_Confirm' : 'Confirm new Password',
       'New_Account_Confirm' : 'Do you want to create new Account ?',
+
+      // New Account
+      'NewAccount.Title' : 'Add New Account',
+      'NewAccount.InitialMoney' : 'Initial money',
+      'NewAccount.Name' : 'Account Name',
+      'NewAccount.IsReport' : 'Use to report ?',
+
+      'Description' : 'Description',
 
       // Reset password
       'Reset_Password_Title' : 'Reset Password Instructions',
@@ -76,6 +92,13 @@ class MoneyManagerLocalizations {
   String get titleLoan => _localizedValues[locale.languageCode]['Title.Loan'];
   String get titleOthers => _localizedValues[locale.languageCode]['Title.Others'];
 
+  // New Account
+  String get newAccountTitle => _localizedValues[locale.languageCode]['NewAccount.Title'];
+  String get newAccountInitialMoney => _localizedValues[locale.languageCode]['NewAccount.InitialMoney'];
+  String get newAccountName => _localizedValues[locale.languageCode]['NewAccount.Name'];
+  String get newAccountIsReport => _localizedValues[locale.languageCode]['NewAccount.IsReport'];
+
+  String get description => _localizedValues[locale.languageCode]['Description'];
 }
 
 class MoneyManagerLocalizationsDelegate extends LocalizationsDelegate<MoneyManagerLocalizations> {
